@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2fc370ae-574a-4b45-807f-700cd17218bf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Xpectable.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fixture.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/css/fixture.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/css/standing.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/soccer-pitch.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/soccer1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/soccer2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/soccer3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/soccer4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/upbig.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/uppbig.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/upsmall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/standing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PremierLeagueTeams.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Xpectable.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Team.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XpectableMain.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2c9gr7QcWJhPS5QEhA02PIWiSOd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/allan/OneDrive/Desktop/Xpectable/resources/images",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\allan\OneDrive\Desktop\Xpectable\resources\images" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2fc370ae-574a-4b45-807f-700cd17218bf" name="Changes" comment="" />
+      <created>1707529403855</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707529403855</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
