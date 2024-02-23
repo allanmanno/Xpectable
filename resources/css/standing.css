@@ -1,5 +1,7 @@
 body {
   background-color:#EFECEC;
+  min-height: 100vh;
+}
 /* logo space */
 .logo{
      float: left;
@@ -125,10 +127,12 @@ footer {
   padding: 3px;
   background-color: #FC6736;
   color: white;
-  margin: 675px 0% 0px 0%;
-  display: block;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
  /* social media below menu bar */
-.social_media_footer{
-    background-color: #FC6736;
+footer social_media{
+    color:black;
 }

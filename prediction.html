@@ -16,7 +16,7 @@
 <div class="menu_box">
     <div class="logo">
         <hr />
-        <a href="#"><h3><b style="color:#FC6736;font-size:35px">XP</b>ectable</h3></a>
+        <a href="index.html"><h3><b style="color:#FC6736;font-size:35px">XP</b>ectable</h3></a>
         <hr />
     </div>
     <ul>
@@ -28,7 +28,7 @@
             Standing</a></li>
         <li><a href="prediction.html"><i class="fa-solid fa-circle-question fa-fw"></i>
             Prediction</a></li>
-        <li><a href="#"><i class="fa fa-envelope fa-fw"></i>
+        <li><a href="contact.html"><i class="fa fa-envelope fa-fw"></i>
             Contact</a></li>
         <li><a href="#"><i class="fa fa-comment fa-fw"></i>
             Feedback</a></li>
@@ -40,6 +40,25 @@
 </div>
 
 <div>
+
+    <form id="choose_league">
+        <label for="states">Choose a State:</label>
+        <select id="states" name="states">
+            <option value="pennsylvania">Pennsylvania</option>
+            <option value="massachusetts">Massachusetts</option>
+            <option value="new jersey">New Jersey</option>
+            <option value="new york">New York</option>
+            <option value="virginia">Virginia</option>
+        </select><br>
+        <label for="division">Choose a Division:</label>
+        <select id="division" name="division">
+            <option value="division1"> Division 1</option>
+            <option value="division2">Division 2</option>
+        </select>
+        <div>
+            <input type="submit" style="margin-left:80%" onclick="myFunction()" value="Submit">
+        </div>
+    </form>
 
 </div>
 
@@ -58,8 +77,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+<script src="resources/js/prediction.js"></script>
 </body>
 </html>

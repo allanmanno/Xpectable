@@ -1,6 +1,7 @@
 /* full page*/
 body {
   background-color:#EFECEC;
+  min-height: 100vh;
 }
 
 /* logo space */
@@ -80,8 +81,6 @@ ul{
 /* the container */
 .summary{
     height: 500px;
-    background-image: url("/resources/images/uppbig.jpg");
-    background-size: cover;
     border-radius: 20px;
 }
 .summary pre{
@@ -165,8 +164,9 @@ footer {
   padding: 3px;
   background-color: #FC6736;
   color: white;
-  margin: 40px 0% 0px 0%;
-  display: block;
+  margin-top: 20px;
+  position: absolute;
+  width: 100%;
 }
  /* social media below menu bar */
 footer social_media{

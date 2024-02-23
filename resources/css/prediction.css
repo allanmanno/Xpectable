@@ -1,5 +1,7 @@
 body {
   background-color:#EFECEC;
+  min-height: 100vh;
+}
 /* logo space */
 .logo{
      float: left;
@@ -75,4 +77,31 @@ ul{
     overflow: hidden;
     background-color: #0C2D57;
 }
+
 /*********************************/
+#choose_league{
+    background-color:white;
+    margin: 40px 400px 0px 400px;
+    border: 1px solid black;
+    padding: 20px;
+}
+#choose_league label{
+    padding:10px;
+    font-size: 18px;
+}
+
+/*********************************/
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #FC6736;
+  color: white;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+ /* social media below menu bar */
+footer social_media{
+    color:black;
+}
