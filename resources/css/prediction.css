@@ -81,13 +81,18 @@ ul{
 /*********************************/
 #choose_league{
     background-color:white;
-    margin: 40px 400px 0px 400px;
+    margin: 40px 30% 0px 30%;
     border: 1px solid black;
     padding: 20px;
+    width: 40%;
 }
 #choose_league label{
     padding:10px;
     font-size: 18px;
+    width: 180px;
+}
+#choose_league select{
+    width: 200px;
 }
 
 /*********************************/

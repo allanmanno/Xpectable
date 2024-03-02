@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fc370ae-574a-4b45-807f-700cd17218bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/css/contact.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/prediction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virginia_division1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixture.html" beforeDir="false" afterPath="$PROJECT_DIR$/fixture.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prediction.html" beforeDir="false" afterPath="$PROJECT_DIR$/prediction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/fixture.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/fixture.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/prediction.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/prediction.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/standing.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/standing.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/images/uppbig.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/up.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/standing.html" beforeDir="false" afterPath="$PROJECT_DIR$/standing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/prediction.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/prediction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/up.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/up.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,24 +40,25 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/allan/OneDrive/Documents/GitHub/Xpectable",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propGUI"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/allan/OneDrive/Documents/GitHub/Xpectable&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propGUI&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\allan\OneDrive\Desktop\Xpectable\resources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\allan\OneDrive\Documents\GitHub\Xpectable\resources\images" />
       <recent name="C:\Users\allan\OneDrive\Documents\GitHub\Xpectable" />
       <recent name="C:\Users\allan\OneDrive\Documents\GitHub\Xpectable\resources\css" />
     </key>
