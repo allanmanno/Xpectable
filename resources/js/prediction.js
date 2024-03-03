@@ -1,7 +1,8 @@
 function myFunction() {
-   var a = document.getElementById('states').value;
-   var b = document.getElementById('division').value;
-   var c = "resources/html/" + a + "_" + b + ".html";
-   window.location.assign(c);
-   
+   window.location.assign("pre.html");
+   let state1 = document.getElementById('states').value;
+   let division1 = document.getElementById('division').value;
+   sessionStorage.setItem("leagueName1", state1);
+   sessionStorage.setItem("leagueDivision1", division1);
 }
+// export {myFunction};
