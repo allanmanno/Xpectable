@@ -51,35 +51,35 @@
       <label for="drop-btn" class="dropdown-label">Filter:</label>
       <button onclick="dropdownFunction()" id="drop-btn" class="dropdown-btn">All</button>
       <ul id="drop-content" class="dropdown-content">
-        <li><a href="fixture.jsp?league_id=-1">All</a></li>
-        <li><a href="fixture.jsp?league_id=1">Massachusetts</a>
+        <li><a href="stat.jsp?league_id=-1">All</a></li>
+        <li><a href="stat.jsp?league_id=1">Massachusetts</a>
             <ul>
-                <li><a href="fixture.jsp?league_id=301">Division 1</a></li>
-                <li><a href="fixture.jsp?league_id=302">Division 2</a></li>
+                <li><a href="stat.jsp?league_id=301">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=302">Division 2</a></li>
             </ul>
         </li>
-        <li><a href="fixture.jsp?league_id=2">New Jersey</a>
+        <li><a href="stat.jsp?league_id=2">New Jersey</a>
             <ul>
-                <li><a href="fixture.jsp?league_id=201">Division 1</a></li>
-                <li><a href="fixture.jsp?league_id=202">Division 2</a></li>
+                <li><a href="stat.jsp?league_id=201">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=202">Division 2</a></li>
             </ul>
         </li>
-        <li><a href="fixture.jsp?league_id=3">New York</a>
+        <li><a href="stat.jsp?league_id=3">New York</a>
             <ul>
-                <li><a href="fixture.jsp?league_id=101">Division 1</a></li>
-                <li><a href="fixture.jsp?league_id=102">Division 2</a></li>
+                <li><a href="stat.jsp?league_id=101">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=102">Division 2</a></li>
             </ul>
         </li>
-        <li><a href="fixture.jsp?league_id=4">Pennsylvania</a>
+        <li><a href="stat.jsp?league_id=4">Pennsylvania</a>
             <ul>
-                <li><a href="fixture.jsp?league_id=401">Division 1</a></li>
-                <li><a href="fixture.jsp?league_id=402">Division 2</a></li>
+                <li><a href="stat.jsp?league_id=401">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=402">Division 2</a></li>
             </ul>
         </li>
-        <li><a href="fixture.jsp?league_id=5">Virginia</a>
+        <li><a href="stat.jsp?league_id=5">Virginia</a>
             <ul>
-                <li><a href="fixture.jsp?league_id=501">Division 1</a></li>
-                <li><a href="fixture.jsp?league_id=502">Division 2</a></li>
+                <li><a href="stat.jsp?league_id=501">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=502">Division 2</a></li>
             </ul>
         </li>
     </ul>
