@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\allan\OneDrive\Desktop\xpec\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4074381886.index
+4087404775.index
+2582673366.index
+3304815957.index
+227187444.index
+2915336835.index
+1080545878.index

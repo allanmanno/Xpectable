@@ -1,0 +1,38 @@
+// Dropdown function to show/hide dropdown content
+function dropdownFunction() {
+    document.getElementById("drop-content").classList.toggle("show");
+}
+
+// Close dropdown when clicking outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-btn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+// AJAX function to filter standings based on selected league
+function filterStandings(leagueId) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("standingsTable").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "fetchStandings.jsp?league_id=" + leagueId, true);
+    xhttp.send();
+}
+
+// Event listener for filter dropdown links
+document.querySelectorAll('.dropdown-content a').forEach(item => {
+    item.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default link behavior
+        var leagueId = item.getAttribute('href').split("=")[1]; // Extract league ID from href
+        filterStandings(leagueId); // Filter standings based on selected league ID
+    });
+});

@@ -1,0 +1,16 @@
+// JavaScript for filtering fixtures
+function filterFixtures(leagueId) {
+    // Update the URL with the league ID
+    var url = new URL(window.location.href);
+    url.searchParams.set('league_id', leagueId);
+    window.location.href = url.toString();
+}
+
+// Event listener for filter dropdown links
+document.querySelectorAll('.dropdown-content a').forEach(item => {
+    item.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default link behavior
+        var leagueId = item.getAttribute('href').split("=")[1]; // Extract league ID from href
+        filterFixtures(leagueId); // Filter fixtures based on selected league ID
+    });
+});

@@ -1,0 +1,119 @@
+<%@ page import="java.sql.*" %>
+<%@ page language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>League Statistics</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <%
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/xpectable_data", "root", "MyPass123!");
+
+            // Retrieve standings data for the current league
+            stmt = conn.prepareStatement("SELECT t.team_name, " +
+                                                   "SUM(s.game_played) AS played, " +
+                                                   "SUM(s.game_won) AS won, " +
+                                                   "SUM(s.game_drawn) AS drawn, " +
+                                                   "SUM(s.game_lost) AS lost " +
+                                           "FROM team t " +
+                                           "LEFT JOIN standing s ON t.team_id = s.team_id " +
+                                           "GROUP BY t.team_name " +
+                                           "ORDER BY played DESC");
+            rs = stmt.executeQuery();
+
+            // Initialize arrays to store data for the chart
+            String[] teamNames = new String[10]; // Assuming you're displaying data for top 10 teams
+            int[] gamesPlayed = new int[10];
+            int[] gamesWon = new int[10];
+            int[] gamesDrawn = new int[10];
+            int[] gamesLost = new int[10];
+            int i = 0;
+            while (rs.next() && i < 10) { // Retrieve data for top 10 teams
+                teamNames[i] = rs.getString("team_name");
+                gamesPlayed[i] = rs.getInt("played");
+                gamesWon[i] = rs.getInt("won");
+                gamesDrawn[i] = rs.getInt("drawn");
+                gamesLost[i] = rs.getInt("lost");
+                i++;
+            }
+    %>
+
+    <!-- Create canvas for the bar chart -->
+    <canvas id="gamesChart" width="400" height="400"></canvas>
+
+    <script>
+        // Get data from JSP variables
+        var teamNames = <%= new com.google.gson.Gson().toJson(teamNames) %>;
+        var gamesPlayed = <%= new com.google.gson.Gson().toJson(gamesPlayed) %>;
+        var gamesWon = <%= new com.google.gson.Gson().toJson(gamesWon) %>;
+        var gamesDrawn = <%= new com.google.gson.Gson().toJson(gamesDrawn) %>;
+        var gamesLost = <%= new com.google.gson.Gson().toJson(gamesLost) %>;
+
+        // Create chart
+        var ctx = document.getElementById('gamesChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: teamNames,
+                datasets: [{
+                    label: 'Played',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    data: gamesPlayed
+                }, {
+                    label: 'Won',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    data: gamesWon
+                }, {
+                    label: 'Drawn',
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1,
+                    data: gamesDrawn
+                }, {
+                    label: 'Lost',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    data: gamesLost
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <%
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    %>
+</body>
+</html>

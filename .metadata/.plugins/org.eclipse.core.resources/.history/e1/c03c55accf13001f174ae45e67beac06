@@ -1,0 +1,22 @@
+function filterFixture(leagueId) {
+    // Make an AJAX request to fetch fixture data for the selected league
+    fetch("fetchFixture.jsp?league_id=" + leagueId)
+        .then(response => response.text())
+        .then(data => {
+            // Update the fixture table with the fetched data
+            document.getElementById("fixtureTable").innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+// Event listener for filter dropdown links
+document.querySelectorAll('.dropdown-content a').forEach(item => {
+    item.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default link behavior
+        
+        var leagueId = item.getAttribute('href').split("=")[1]; // Extract league ID from href
+        filterFixture(leagueId); // Filter fixture data based on selected league ID
+    });
+});

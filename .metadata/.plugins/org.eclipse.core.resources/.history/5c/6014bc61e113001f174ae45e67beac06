@@ -1,0 +1,129 @@
+/* full page*/
+body {
+  background-color:#EFECEC;
+  min-height: 100vh;
+}
+
+/* logo space */
+.logo{
+     float: left;
+     display:flex;
+     width: 19.5%;
+     background-color: white;
+     padding-left: 5px;
+     padding-right: 5px;
+     border-bottom: 2px solid #0C2D57;
+     border-right: 2px solid #0C2D57;
+}
+/* ectable */
+.logo h3 {
+   color: #0C2D57;
+   padding-left: 5px;
+   padding-right: 5px;
+}
+/* whole logo text */
+.logo a{
+    text-decoration: none;
+    text-align:center;
+}
+/* logo line */
+.logo hr{
+    border-top: 7px double red;
+    text-align: center;
+    width:100%;
+    margin-top:22px;
+}
+
+/* navy list bar */
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+/* last anchor of the list */
+li:last-child {
+    border-right: none;
+}
+/* each anchor of the list */
+li a {
+  color: #EFECEC;
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: verdana, sans-serif;
+}
+/* what happen when hover on a anchor */
+li:hover{
+    background-color:#5E5365;
+}
+/* home anchor */
+.home{
+    background-color: #FC6736;
+    color: white;
+}
+/* home anchor hover */
+.home:hover{
+    background-color: #5E5365;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0C2D57;
+}
+
+/**********************************/
+#contact_box{
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 500px;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: 80%;
+    background-color:white;
+}
+#contact_box label{
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    padding:10px;
+    vertical-align:top;
+}
+#contact_box input{
+    width: 300px;
+}
+#message{
+    width: 300px;
+    height: 100px;
+    box-sizing: border-box;
+}
+#submit_btn{
+    margin-left:300px;
+    margin-top:10px;
+}
+/******************************/
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #dee2e6;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+footer .social_media {
+    margin-right: 47%;
+}
+
+footer .social_media a {
+    margin-right: 10px;
+    color: #0C2D57;
+    font-size: 20px;
+}

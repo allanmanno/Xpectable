@@ -1,0 +1,24 @@
+// JavaScript code for when the path is "/xpec/src/main/webapp/resources/js/standing.js"
+
+function filterStanding(leagueId) {
+    // Make an AJAX request to fetch standing data for the selected league
+    fetch("/xpec/src/main/webapp/fetchFixture.jsp?league_id=" + leagueId)
+        .then(response => response.text())
+        .then(data => {
+            // Update the standing table with the fetched data
+            document.getElementById("standingTable").innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+// Event listener for filter dropdown links
+document.querySelectorAll('.dropdown-content a').forEach(item => {
+    item.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default link behavior
+        
+        var leagueId = item.getAttribute('href').split("=")[1]; // Extract league ID from href
+        filterStanding(leagueId); // Filter standing data based on selected league ID
+    });
+});

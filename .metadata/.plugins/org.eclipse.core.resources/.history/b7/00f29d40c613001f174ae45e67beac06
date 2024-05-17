@@ -1,0 +1,39 @@
+// JavaScript for handling dropdown functionality
+function dropdownFunction() {
+    var dropdownContent = document.getElementById("drop-content");
+    var dropdownButton = document.getElementById("drop-btn");
+    dropdownContent.classList.toggle("show");
+    dropdownButton.classList.toggle("active"); // Add or remove the 'active' class from the dropdown button
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-btn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var buttons = document.getElementsByClassName("dropdown-btn");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            var button = buttons[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+                button.classList.remove('active'); // Remove the 'active' class from the button when the dropdown is closed
+            }
+        }
+    }
+}
+
+// JavaScript for filtering fixtures
+function filterFixtures(leagueId) {
+    // Update the URL with the league ID
+    var url = new URL(window.location.href);
+    url.searchParams.set('league_id', leagueId);
+    window.location.href = url.toString();
+}
+
+// Event listener for filter dropdown links
+document.querySelectorAll('.dropdown-content a').forEach(item => {
+    item.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default link behavior
+        var leagueId = item.getAttribute('href').split("=")[1]; // Extract league ID from href
+        filterFixtures(leagueId); // Filter fixtures based on selected league ID
+    });
+});

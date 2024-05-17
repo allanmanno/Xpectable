@@ -1,0 +1,187 @@
+<%@ page import="java.sql.Connection, java.sql.DriverManager, java.sql.PreparedStatement, java.sql.ResultSet, java.sql.SQLException" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XPectable Standing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="resources/css/fixture.css">
+    <style>
+        table {
+    width: 50%;
+    left: 25%;
+    position: relative;
+    margin-bottom: 20px;
+}
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #FC6736;
+            color: white;
+        }
+    </style>
+    <script src="resources/js/fixture.js"></script>
+
+</head>
+<body>
+<nav class="menu_box">
+    <div class="logo">
+        <hr />
+        <a href="index.html"><h3><b style="color:#FC6736;font-size:35px">XP</b>ectable</h3></a>
+        <hr />
+    </div>
+    <ul>
+        <li><a class="home" href="index.jsp"><i class="fa fa-home fa-fw"></i> Home</a></li>
+        <li><a href="fixture.jsp"><i class="fa fa-calendar fa-fw"></i> Fixture</a></li>
+        <li><a href="standing.jsp"><i class="fa-solid fa-ranking-star fa-fw"></i> Standing</a></li>
+        <li><a href="contact.html"><i class="fa fa-envelope fa-fw"></i> Contact</a></li>
+        <li><a href="#"><i class="fa fa-comment fa-fw"></i> Feedback</a></li>
+        <div class="social_media">
+            <a href="#"><i class="fa-brands fa-linkedin" style="color:#EFECEC"></i></a>
+            <a href="#"><i class="fa-brands fa-github" style="color:#EFECEC"></i></a>
+        </div>
+    </ul>
+</nav>
+
+<div class="filter-dropdown">
+    <label for="drop-btn" class="dropdown-label">Filter:</label>
+    <button onclick="dropdownFunction()" id="drop-btn" class="dropdown-btn">League</button>
+    <ul id="drop-content" class="dropdown-content">
+        <li><a href="standing.jsp?league_id=-1">All</a></li>
+        <li><a href="standing.jsp?league_id=1">Massachusetts</a>
+            <ul>
+                <li><a href="standing.jsp?league_id=301">Division 1</a></li>
+                <li><a href="standing.jsp?league_id=302">Division 2</a></li>
+            </ul>
+        </li>
+        <li><a href="standing.jsp?league_id=2">New Jersey</a>
+            <ul>
+                <li><a href="standing.jsp?league_id=201">Division 1</a></li>
+                <li><a href="standing.jsp?league_id=202">Division 2</a></li>
+            </ul>
+        </li>
+        <li><a href="standing.jsp?league_id=3">New York</a>
+            <ul>
+                <li><a href="standing.jsp?league_id=101">Division 1</a></li>
+                <li><a href="standing.jsp?league_id=102">Division 2</a></li>
+            </ul>
+        </li>
+        <li><a href="standing.jsp?league_id=4">Pennsylvania</a>
+            <ul>
+                <li><a href="standing.jsp?league_id=401">Division 1</a></li>
+                <li><a href="standing.jsp?league_id=402">Division 2</a></li>
+            </ul>
+        </li>
+        <li><a href="standing.jsp?league_id=5">Virginia</a>
+            <ul>
+                <li><a href="standing.jsp?league_id=501">Division 1</a></li>
+                <li><a href="standing.jsp?league_id=502">Division 2</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+
+<h2 style="padding-top: 200px; padding-left:40%;">League Standings</h2>
+
+
+<%
+    // Retrieve league_id from request parameters
+    int leagueIdFilter = -1; // Default to show all leagues
+    String leagueIdParam = request.getParameter("league_id");
+    if (leagueIdParam != null && !leagueIdParam.isEmpty()) {
+        leagueIdFilter = Integer.parseInt(leagueIdParam);
+    }
+    
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/xpectable_data", "root", "MyPass123!");
+
+        // Retrieve distinct league ids with their names
+        stmt = conn.prepareStatement("SELECT DISTINCT s.league_id, l.league_name FROM standing s JOIN league l ON s.league_id = l.league_id WHERE ? = -1 OR s.league_id = ?");
+        stmt.setInt(1, leagueIdFilter);
+        stmt.setInt(2, leagueIdFilter);
+        rs = stmt.executeQuery();
+        while (rs.next()) {
+            int leagueId = rs.getInt("league_id");
+            String leagueName = rs.getString("league_name");
+
+            // Retrieve standings data for the current league
+            PreparedStatement stmt2 = conn.prepareStatement("SELECT t.team_name, " +
+                                                                   "SUM(s.game_played) AS played, " +
+                                                                   "SUM(s.game_won) AS won, " +
+                                                                   "SUM(s.game_drawn) AS drawn, " +
+                                                                   "SUM(s.game_lost) AS lost, " +
+                                                                   "SUM(s.goals_for) AS goals_for, " +
+                                                                   "SUM(s.goals_against) AS goals_against, " +
+                                                                   "SUM(s.points) AS points, " +
+                                                                   "SUM(s.goals_for) - SUM(s.goals_against) AS goal_difference " +
+                                                               "FROM team t " +
+                                                               "LEFT JOIN standing s ON t.team_id = s.team_id " +
+                                                               "WHERE s.league_id = ? " +
+                                                               "GROUP BY t.team_name " +
+                                                               "ORDER BY points DESC");
+            stmt2.setInt(1, leagueId);
+            ResultSet rs2 = stmt2.executeQuery();
+%>
+<h5 style="padding-left: 25%;"><%= leagueName %></h5>
+
+<table>
+    <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Won</th>
+        <th>Drawn</th>
+        <th>Lost</th>
+        <th>Goals For</th>
+        <th>Goals Against</th>
+        <th>Goal Difference</th>
+        <th>Points</th>
+    </tr>
+    <%
+            int position = 1;
+            while (rs2.next()) {
+    %>
+    <tr>
+        <td><%= position++ %></td>
+        <td><%= rs2.getString("team_name") %></td>
+        <td><%= rs2.getInt("played") %></td>
+        <td><%= rs2.getInt("won") %></td>
+        <td><%= rs2.getInt("drawn") %></td>
+        <td><%= rs2.getInt("lost") %></td>
+        <td><%= rs2.getInt("goals_for") %></td>
+        <td><%= rs2.getInt("goals_against") %></td>
+        <td><%= rs2.getInt("goal_difference") %></td>
+        <td><%= rs2.getInt("points") %></td>
+    </tr>
+    <%
+            }
+            rs2.close();
+            stmt2.close();
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+%>
+</table>
+</body>
+<script src="/xpec/src/main/webapp/resources/js/standing.js"></script>
+</html>

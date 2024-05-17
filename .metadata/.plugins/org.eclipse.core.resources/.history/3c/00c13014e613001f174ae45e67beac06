@@ -1,0 +1,237 @@
+body {
+    background-color:#EFECEC;
+    min-height: 100vh;
+  }
+  /* logo space */
+  .logo{
+       float: left;
+       display:flex;
+       width: 19.5%;
+       height: 60px;
+       background-color: white;
+       padding-left: 5px;
+       padding-right: 5px;
+       border-bottom: 2px solid #0C2D57;
+       border-right: 2px solid #0C2D57;
+  }
+  /* ectable */
+  .logo h3 {
+     color: #0C2D57;
+     padding-left: 5px;
+     padding-right: 5px;
+  }
+  /* whole logo text */
+  .logo a{
+      text-decoration: none;
+      text-align:center;
+  }
+  /* logo line */
+  .logo hr{
+      border-top: 7px double red;
+      text-align: center;
+      width:100%;
+      margin-top:22px;
+  }
+  
+   /* social media below menu bar */
+  .social_media{
+      float:right;
+      margin-top: 13px;
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+  
+  /* navy list bar */
+  li {
+      float: left;
+      border-right:1px solid #bbb;
+  }
+  /* last anchor of the list */
+  li:last-child {
+      border-right: none;
+  }
+  /* each anchor of the list */
+  li a {
+    color: #EFECEC;
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: verdana, sans-serif;
+  }
+  /* what happen when hover on a anchor */
+  li:hover{
+      background-color:#5E5365;
+  }
+  /* home anchor */
+  .home{
+      background-color: #FC6736;
+      color: white;
+  }
+  /* home anchor hover */
+  .home:hover{
+      background-color: #5E5365;
+  }
+  ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #0C2D57;
+  }
+  
+  /*********************************/
+
+.filter-dropdown {
+    position: relative;
+    left: 40%;
+    top: 50px;
+}
+
+.filter-dropdown .dropdown-btn {
+    width: 200px;
+    height: 25px;
+    cursor: pointer;
+    background: #ffffff;
+    text-align: center -5px;
+    position: relative; /* Add this */
+}
+
+.filter-dropdown .dropdown-btn:hover {
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.filter-dropdown .dropdown-btn::after {
+    content: "▼"; /* Change this to 'v' or any other symbol */
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+}
+
+.filter-dropdown .dropdown-btn:hover::after {
+    color: grey; /* Change this as needed */
+}
+
+.filter-dropdown .dropdown-label {
+    padding-right: 20px;
+    font-size: 18px;
+}
+
+.filter-dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 200px;
+    overflow: inherit;
+    background-color: #ffffff;
+    text-align: left;
+    list-style: none;
+    left: 67px;
+}
+
+.filter-dropdown .dropdown-content.show {
+    display: block;
+}
+
+.filter-dropdown .dropdown-content a {
+    text-decoration: none;
+    display: block;
+    color: #000;
+}
+
+.filter-dropdown ul a:hover {
+    background-color: gray;
+    box-shadow: -10px 0 0 gray;
+    color: #ffffff;
+    width: 189px;
+    transition: all 0.3s ease;
+}
+
+.filter-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+}
+
+.filter-dropdown ul li {
+    margin-right: 0; /* or padding-right: 0; */
+    padding-left: 10px;
+    border-bottom: 0.1px solid rgb(160, 160, 160);
+    width: 200px;
+    float: none;
+    display: list-item;
+    position: relative;
+}
+
+.filter-dropdown ul li::after {
+    content: "\27A4"; /* Change this to 'v' or any other symbol */
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+}
+
+.filter-dropdown ul:hover::after {
+    color: grey; /* Change this as needed */
+}
+
+.filter-dropdown ul ul {
+    display: none;
+    position: absolute; /* Position at the top of the page */
+    background-color: #ffffff;
+    top: 5px;
+    left: 200px;
+    width: 100px;
+    border-radius: 0;
+}
+
+.filter-dropdown ul ul a:hover {
+    background-color: gray;
+    box-shadow: -10px 0 0 gray;
+    color: #ffffff;
+    width: 89px;
+    transition: all 0.3s ease;
+}
+
+.filter-dropdown ul li:hover > ul {
+    display: inherit; /* Change to block to show */
+    transition: all 0.3s ease;
+}
+
+.filter-dropdown ul ul li {
+    position: relative;
+    width: 89px;
+}
+
+.filter-dropdown ul ul li::after {
+    content: none;
+}
+
+
+/******************************/
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #dee2e6;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+footer .social_media {
+    margin-right: 47%;
+}
+
+footer .social_media a {
+    margin-right: 10px;
+    color: #0C2D57;
+    font-size: 20px;
+}
+  

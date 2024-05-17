@@ -1,0 +1,217 @@
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.Comparator" %>
+<%@ page import="java.util.Objects" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.LinkedHashMap" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>League Statistics</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="resources/css/fixture.css">
+    <style>
+        .chart-container {
+            width: 20%;
+            display: inline-block;
+            margin: 0 5px;
+            padding-top: 200px; /* Add padding to the top */
+            text-align: center; /* Center align the charts */
+        }
+    </style>
+</head>
+
+<body>
+<nav class="menu_box">
+    <div class="logo">
+        <hr />
+        <a href="index.html"><h3><b style="color:#FC6736;font-size:35px">XP</b>ectable</h3></a>
+        <hr />
+    </div>
+    <ul>
+        <li><a class="home" href="index.jsp"><i class="fa fa-home fa-fw"></i> Home</a></li>
+        <li><a href="fixture.jsp"><i class="fa fa-calendar fa-fw"></i> Fixture</a></li>
+        <li><a href="standing.jsp"><i class="fa-solid fa-ranking-star fa-fw"></i> Standing</a></li>
+        <li><a href="contact.html"><i class="fa fa-envelope fa-fw"></i> Contact</a></li>
+        <li><a href="#"><i class="fa fa-comment fa-fw"></i> Feedback</a></li>
+        <div class="social_media">
+            <a href="#"><i class="fa-brands fa-linkedin" style="color:#EFECEC"></i></a>
+            <a href="#"><i class="fa-brands fa-github" style="color:#EFECEC"></i></a>
+        </div>
+    </ul>
+</nav>
+
+<div class="filter-dropdown">
+      <label for="drop-btn" class="dropdown-label">Filter:</label>
+      <button onclick="dropdownFunction()" id="drop-btn" class="dropdown-btn">All</button>
+      <ul id="drop-content" class="dropdown-content">
+        <li><a href="stat.jsp?league_id=-1">All</a></li>
+        <li><a href="stat.jsp?league_id=1">Massachusetts</a>
+            <ul>
+                <li><a href="stat.jsp?league_id=301">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=302">Division 2</a></li>
+            </ul>
+        </li>
+        <li><a href="stat.jsp?league_id=2">New Jersey</a>
+            <ul>
+                <li><a href="stat.jsp?league_id=201">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=202">Division 2</a></li>
+            </ul>
+        </li>
+        <li><a href="stat.jsp?league_id=3">New York</a>
+            <ul>
+                <li><a href="stat.jsp?league_id=101">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=102">Division 2</a></li>
+            </ul>
+        </li>
+        <li><a href="stat.jsp?league_id=4">Pennsylvania</a>
+            <ul>
+                <li><a href="stat.jsp?league_id=401">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=402">Division 2</a></li>
+            </ul>
+        </li>
+        <li><a href="stat.jsp?league_id=5">Virginia</a>
+            <ul>
+                <li><a href="stat.jsp?league_id=501">Division 1</a></li>
+                <li><a href="stat.jsp?league_id=502">Division 2</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- Create chart containers for the charts -->
+<div class="charts-container"> <!-- Container for the charts -->
+    <!-- Create chart containers for the charts -->
+    <div class="chart-container">
+        <canvas id="goalsForChart" width="400" height="400"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="goalsAgainstChart" width="400" height="400"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="gamesWonChart" width="400" height="400"></canvas>
+    </div>
+</div>
+<%
+    // Sort the data arrays based on goals scored
+    Object[][] sortedData = sortData(teamNames, goalsFor, goalsAgainst, gamesWon);
+
+    // Extract sorted data
+    String[] sortedTeamNames = (String[]) sortedData[0];
+    int[] sortedGoalsFor = (int[]) sortedData[1];
+    int[] sortedGoalsAgainst = (int[]) sortedData[2];
+    int[] sortedGamesWon = (int[]) sortedData[3];
+%>
+<script>
+    // Create bar chart for goals scored
+    var ctxGoalsFor = document.getElementById('goalsForChart').getContext('2d');
+    var goalsForChart = new Chart(ctxGoalsFor, {
+        type: 'bar',
+        data: {
+            labels: <%= Arrays.toString(sortedTeamNames) %>,
+            datasets: [{
+                label: 'Goals Scored',
+                backgroundColor: '#FF6384',
+                borderColor: '#FF6384',
+                borderWidth: 1,
+                data: <%= Arrays.toString(sortedGoalsFor) %>
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Create bar chart for goals against
+    var ctxGoalsAgainst = document.getElementById('goalsAgainstChart').getContext('2d');
+    var goalsAgainstChart = new Chart(ctxGoalsAgainst, {
+        type: 'bar',
+        data: {
+            labels: <%= Arrays.toString(sortedTeamNames) %>,
+            datasets: [{
+                label: 'Goals Against',
+                backgroundColor: '#36A2EB',
+                borderColor: '#                36A2EB',
+                borderWidth: 1,
+                data: <%= Arrays.toString(sortedGoalsAgainst) %>
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Create bar chart for games won
+    var ctxGamesWon = document.getElementById('gamesWonChart').getContext('2d');
+    var gamesWonChart = new Chart(ctxGamesWon, {
+        type: 'bar',
+        data: {
+            labels: <%= Arrays.toString(sortedTeamNames) %>,
+            datasets: [{
+                label: 'Games Won',
+                backgroundColor: '#FFCE56',
+                borderColor: '#FFCE56',
+                borderWidth: 1,
+                data: <%= Arrays.toString(sortedGamesWon) %>
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<%
+    // Function to sort the data arrays based on goals scored
+    public Object[][] sortData(String[] teamNames, int[] goalsFor, int[] goalsAgainst, int[] gamesWon) {
+        Integer[] indices = new Integer[teamNames.length];
+        for (int i = 0; i < teamNames.length; i++) {
+            indices[i] = i;
+        }
+
+        // Sort indices based on goals scored
+        Arrays.sort(indices, Comparator.comparingInt(index -> goalsFor[index]));
+
+        // Initialize sorted arrays
+        String[] sortedTeamNames = new String[teamNames.length];
+        int[] sortedGoalsFor = new int[teamNames.length];
+        int[] sortedGoalsAgainst = new int[teamNames.length];
+        int[] sortedGamesWon = new int[teamNames.length];
+
+        // Populate sorted arrays
+        for (int i = 0; i < teamNames.length; i++) {
+            int index = indices[i];
+            sortedTeamNames[i] = teamNames[index];
+            sortedGoalsFor[i] = goalsFor[index];
+            sortedGoalsAgainst[i] = goalsAgainst[index];
+            sortedGamesWon[i] = gamesWon[index];
+        }
+
+        return new Object[][]{sortedTeamNames, sortedGoalsFor, sortedGoalsAgainst, sortedGamesWon};
+    }
+%>
+</body>
+<script src="resources/js/fixture.js"></script>
+</html>
+

@@ -1,0 +1,25 @@
+function dropdownFunction(){
+    document.getElementById("drop-content").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-btn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+// Event listener for filter dropdown links
+document.querySelectorAll('.dropdown-content a').forEach(item => {
+    item.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default link behavior
+        
+        var leagueId = item.getAttribute('href').split("=")[1]; // Extract league ID from href
+        filterFixture(leagueId); // Filter fixture data based on selected league ID
+    });
+});
